@@ -212,6 +212,9 @@ $app_name = idx($app_info, 'name', '');
     
     <h1>Start Frabble</h1>
     
+    <?php $movie = getMovie(); ?>
+    <?php var_dump($movie); ?>
+    
     <?php require('footer.php'); ?>
   </body>
 </html>
