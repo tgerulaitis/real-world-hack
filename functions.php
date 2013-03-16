@@ -11,4 +11,16 @@ function getMovie() {
 	return $movie;
 }
 
+function getGabbleFor($title) {
+	
+	$url = 'http://testapi.gabble.com/Files?search='.urlencode($title);
+	
+	$data = file_get_contents($url);
+	
+	$json = json_decode($data, true);
+	
+	return $json;
+	
+}
+
 ?>

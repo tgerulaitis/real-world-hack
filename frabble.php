@@ -16,9 +16,41 @@ require('functions.php');
     
     <?php 
     
-    $movie = getMovie();
-    var_dump($movie);
-    
+	    $movie = getMovie();
+	    
+	    $movie = $movie['Items'][0];
+	    
+	    $_SESSION['movie'] = $movie;
+	    
+	    $words = explode(' ',$movie['title']);
+	    
+	    $display = array();
+	    
+	    foreach($words as $word) {
+	    	
+	    	if (strlen($word) < 3) {
+		    	$display[] = array('type'=>'text','word'=>$word,'result'=>$word);
+	    	} else {
+	    	
+		    $gabble = getGabbleFor($word);
+		    
+			    if (is_array($gabble)) {
+				    $display[] = array('type'=>'picture','word'=>$word,'result'=>$gabble[0]);
+			    } else {
+			    	$display[] = array('type'=>'text','word'=>$word,'result'=>$word);
+			    }
+		    }
+	    }
+	    
+	    foreach($display as $d) {
+		    if ($d['type'] == 'text') {
+			    echo $d['result'];
+		    } else {
+			    echo '<img name="'.$d['word'].'" src="'.$d['result'].'" />';
+		    }
+	    }
+	    
+ 
     ?>
     
     <?php require('footer.php'); ?>
