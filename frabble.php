@@ -1,4 +1,8 @@
-<?php require('functions.php'); ?>
+<?php
+session_start();
+require('functions.php');
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,8 +14,12 @@
     
     <h1>Local Frabble</h1>
     
-    <?php $movie = getMovie(); ?>
-    <?php var_dump($movie); ?>
+    <?php 
+    
+    $movie = getMovie();
+    var_dump($movie);
+    
+    ?>
     
     <?php require('footer.php'); ?>
   </body>
