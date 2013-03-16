@@ -210,6 +210,7 @@ $app_name = idx($app_info, 'name', '');
 
     <?php require('header.php'); ?>
     
+    <h1>Start Frabble</h1>
     
     
     <?php require('footer.php'); ?>
