@@ -12,14 +12,32 @@ switch ($_GET['method']) {
 }
 
 function getNewMovie() {
-	
-  $movie = getMovie();
+
+  $movie = "";
+
+  while (!$movie) {
+    $candidate = getMovie();
   
-  $movie = $movie['Items'][0];
+    $candidate = $candidate['Items'][0];
   
-  $_SESSION['movie'] = $movie;
+    $words = explode(' ',$candidate['title']);
+
+    $valid = true;
+    foreach ($words as $word) {
+        if (!isValidWord($word)) {
+            $valid = false;
+            break;
+        }
+    }
+    if (!$valid) {
+        continue;
+    }
+    $movie = $candidate;
+  }
   
   $words = explode(' ',$movie['title']);
+
+  $_SESSION['movie'] = $movie;
   
   $display = array();
   

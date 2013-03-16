@@ -27,4 +27,24 @@ function getGabbleFor($title) {
 	
 }
 
+function isValidWord($word) {
+    return (dictionaryLookup($word)) ? true : false;
+}
+
+$DICTIONARY_CACHE = array();
+
+function dictionaryLookup($word) {
+    $api_slug = "http://words.bighugelabs.com/api/2/5bac5e5cc52dca2801381d37b54daa3d";
+    $api_format = "json";
+    
+    if (isset($GLOBALS["DICTIONARY_CACHE"][$word])) {
+        return $GLOBALS["DICTIONARY_CACHE"][$word];
+    } else { 
+        $json = @file_get_contents($api_slug . "/" . $word . "/" . $api_format);
+        $contents = json_decode($json, true);
+        $GLOBALS["DICTIONARY_CACHE"][$word] = $contents;
+        return $contents;
+    }
+}
+
 ?>
