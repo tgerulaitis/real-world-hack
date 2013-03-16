@@ -1,5 +1,5 @@
 body {
-  background: url('/img/escheresque_ste.png');
+  background: url('/images/escheresque_ste.png');
 }
 
 .header h1{
@@ -63,7 +63,7 @@ a.right {
 
 .icons li {
   display: block;
-  background: url(/img/iconsprite.png) no-repeat;
+  background: url(/images/iconsprite.png) no-repeat;
   padding: 15px 0 0 70px;
   height: 50px;
   margin: 0 0 20px 0;

@@ -6,15 +6,15 @@
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <title>Frabble</title>
-  <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="stylesheet" href="css/foundation.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="stylesheets/normalize.css" />
+  <link rel="stylesheet" href="stylesheets/foundation.css" />
+  <link rel="stylesheet" href="stylesheets/style.css" />
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
   
 
-  <script src="js/vendor/custom.modernizr.js"></script>
+  <script src="javascript/vendor/custom.modernizr.js"></script>
 
 </head>
 <body>
