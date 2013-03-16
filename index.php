@@ -212,7 +212,6 @@ $app_name = idx($app_info, 'name', '');
     
     <h1>Start Frabble</h1>
     
-    
     <?php require('footer.php'); ?>
   </body>
 </html>
