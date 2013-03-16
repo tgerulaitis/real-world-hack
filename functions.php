@@ -13,12 +13,14 @@ function getMovie() {
 
 function getGabbleFor($title) {
 	
-	$url = 'http://testapi.gabble.com/Files?search='.urlencode($title);
+	$url = 'http://testapi.gabble.com/Files?pageSize=30&search='.urlencode($title);
 	
 	$data = file_get_contents($url);
 	
 	$json = json_decode($data, true);
 	
+	if (is_array($json)) $json = array_unique($json);
+		
 	return $json;
 	
 }
