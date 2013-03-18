@@ -27,7 +27,7 @@ require('functions.php');
 	<div class="row">
 		<div class="large-12 columns">
 		  <div class="header">
-  			<h1 class="logo">Fra<span>bble</span><span class="beta"> beta</span></h1>
+  			<h1 class="logo">Fra<span>bble</span><span class="beta"> alpha</span></h1>
 			</div>
 		</div>
 	</div>
