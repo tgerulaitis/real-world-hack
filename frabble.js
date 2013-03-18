@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+	startGame();
+
 	$('#start').click(function(e) {
 		startGame();
 		e.preventDefault();
@@ -34,32 +37,35 @@ $(document).ready(function() {
 
 function startGame() {
 
-  	    $.getJSON('/ajax.php?method=getNewMovie', function(data) {
-	  	    var items = [];
-	  	    words = data.words;
-	  	    $.each(words, function(index, word) {
-	  	    if(word.type == 'text'){
-	  	    	items.push('<li class="'+ word.type +'">' + word.result + '</li>');
-	  	    }
-	  	    else{
-	  	    	items.push('<li class="'+ word.type +'"><img src="' + word.result + '" /></li>');
-		  	}
-		  	});
-		  	$('#imagelist').html(items.join(''));
-	  	});
-	  	$('#theanswer').replaceWith('<div id="theanswer" class="block">*drum roll....*</div>');
-	  	$('#actorhintval').empty();
-	  	$('#directorhintval').empty();
-	  	$('#yearhintval').empty();
-	  	$('#genrehintval').empty();
-	  	
-	  	
-	  	$('#actorhint').show();
-	  	$('#directorhint').show();
-	  	$('#yearhint').show();
-	  	$('#genrehint').show();
+  $('#imagelist').html('Loading your next movie title... Please wait!');
 
-		return(false);	  	
+  $.getJSON('/ajax.php?method=getNewMovie', function(data) {
+    var items = [];
+    words = data.words;
+    $.each(words, function(index, word) {
+      if(word.type == 'text'){
+      	items.push('<li class="'+ word.type +'">' + word.result + '</li>');
+      }
+      else{
+      	items.push('<li class="'+ word.type +'"><img src="' + word.result + '" /></li>');
+      }
+    });
+    $('#imagelist').html(items.join(''));
+  });
+  
+  $('#theanswer').replaceWith('<div id="theanswer" class="block">*drum roll....*</div>');
+  $('#actorhintval').empty();
+  $('#directorhintval').empty();
+  $('#yearhintval').empty();
+  $('#genrehintval').empty();
+  
+  
+  $('#actorhint').show();
+  $('#directorhint').show();
+  $('#yearhint').show();
+  $('#genrehint').show();
+  
+  return(false);	  	
 }
 
 
