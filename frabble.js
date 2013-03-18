@@ -37,7 +37,8 @@ $(document).ready(function() {
 
 function startGame() {
 
-  $('#imagelist').html('Loading your next movie title... Please wait!');
+  $('#imagelist').html('<h5 class="subheader">Loading your next movie title... Please wait!</h5>');
+  $('#myanswer').val('');
 
   $.getJSON('/ajax.php?method=getNewMovie', function(data) {
     var items = [];
