@@ -84,3 +84,7 @@ a.right {
 .icons #genre {
   background-position: 0px -180px;
 }
+
+.winner{
+	border: 3px solid #bee448;
+}
