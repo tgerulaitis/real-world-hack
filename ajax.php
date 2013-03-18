@@ -4,15 +4,18 @@ require('functions.php');
 if (isset($_POST['method'])) $_GET = $_POST;
 
 switch ($_GET['method']) {
+  case 'revealAnswer':
+    revealAnswer();
+    break;
 	case 'getNewMovie':
 		getNewMovie();
-	    break;
-    case 'guessMovie':
-        guessMovie();
-        break;
-    case 'revealHint':
-        revealHint();
-        break;
+    break;
+  case 'guessMovie':
+    guessMovie();
+    break;
+  case 'revealHint':
+    revealHint();
+    break;
 	default:
 		break;
 }
@@ -123,6 +126,11 @@ function revealHint() {
     }
     
     die(json_encode(array('result'=>'success','hint'=>array('type'=>$type,'value'=>$value))));
+}
+
+function revealAnswer() {
+    $movie = $_SESSION['movie'];
+    die(json_encode(array('result'=>'success','answer'=>$movie['title'])));
 }
 
 ?>

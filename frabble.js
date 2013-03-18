@@ -47,8 +47,7 @@ function startGame() {
     $.each(words, function(index, word) {
       if(word.type == 'text'){
       	items.push('<li class="'+ word.type +'">' + word.result + '</li>');
-      }
-      else{
+      } else {
       	items.push('<li class="'+ word.type +'"><img src="' + word.result + '" /></li>');
       }
     });
