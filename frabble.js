@@ -39,6 +39,7 @@ function startGame() {
 
   $('#imagelist').html('<h5 class="subheader">Loading your next movie title... Please wait!</h5>');
   $('#myanswer').val('');
+	$('#theanswer').removeClass("winner");
 
   $.getJSON('/ajax.php?method=getNewMovie', function(data) {
     var items = [];
@@ -52,9 +53,11 @@ function startGame() {
       }
     });
     $('#imagelist').html(items.join(''));
-  });
+  }).error(function() {
+    alert("We're sorry - We couldn't load a movie title at this time. We're using a lot of beta APIs here and one of them returned something we didn't expect.");
+  });;
   
-  $('#theanswer').replaceWith('<div id="theanswer" class="block">*drum roll....*</div>');
+  $('#theanswer').replaceWith('<div id="theanswer" class="block">Awaiting answer...</div>');
   $('#actorhintval').empty();
   $('#directorhintval').empty();
   $('#yearhintval').empty();
@@ -81,6 +84,7 @@ function testAnswer() {
 	  	    }
 	  	    else{
 	  	    	items.push('Try Again...');
+          	$('#theanswer').removeClass("winner");
 		  	}
 		  	$('#theanswer').html(items.join(''));
 	  	});

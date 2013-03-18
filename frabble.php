@@ -68,7 +68,7 @@ require('functions.php');
 	<div class="row">
   	<div class="large-12 columns">
   	  <div id="theanswer" class="block">
-  	   *drum roll....*
+  	    Loading
   	  </div>
   	</div>
 	</div>
