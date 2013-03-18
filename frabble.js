@@ -34,7 +34,7 @@ $(document).ready(function() {
 
 function startGame() {
 
-  	    $.getJSON('http://frabble.local/ajax.php?method=getNewMovie', function(data) {
+  	    $.getJSON('/ajax.php?method=getNewMovie', function(data) {
 	  	    var items = [];
 	  	    words = data.words;
 	  	    $.each(words, function(index, word) {
@@ -66,7 +66,7 @@ function startGame() {
 function testAnswer() {
 
 		var thefinalanswer = $('#myanswer').val();		
-  	    $.getJSON('http://frabble.local/ajax.php?method=guessMovie&answer='+thefinalanswer, function(data) {
+  	    $.getJSON('/ajax.php?method=guessMovie&answer='+thefinalanswer, function(data) {
 	  	    var items = [];
 	  	    if(data.correct == true){
 	  	    	items.push('Correct!');
@@ -82,7 +82,7 @@ function testAnswer() {
 }
 
 function actorHint() {	
-  	    $.getJSON('http://frabble.local/ajax.php?method=revealHint&type=starring', function(data) {
+  	    $.getJSON('/ajax.php?method=revealHint&type=starring', function(data) {
 		  	$('#actorhintval').html(data.hint.value);
 		  	$('#actorhint').hide();
 	  	});
@@ -90,7 +90,7 @@ function actorHint() {
 }
 
 function yearHint() {	
-  	    $.getJSON('http://frabble.local/ajax.php?method=revealHint&type=year', function(data) {
+  	    $.getJSON('/ajax.php?method=revealHint&type=year', function(data) {
 		  	$('#yearhintval').html(data.hint.value);
 		  	$('#yearhint').hide();
 	  	});
@@ -98,7 +98,7 @@ function yearHint() {
 }
 
 function directorHint() {	
-  	    $.getJSON('http://frabble.local/ajax.php?method=revealHint&type=director', function(data) {
+  	    $.getJSON('/ajax.php?method=revealHint&type=director', function(data) {
 		  	$('#directorhintval').html(data.hint.value);
 		  	$('#directorhint').hide();
 	  	});
@@ -106,7 +106,7 @@ function directorHint() {
 }
 
 function genreHint() {	
-  	    $.getJSON('http://frabble.local/ajax.php?method=revealHint&type=genre', function(data) {
+  	    $.getJSON('/ajax.php?method=revealHint&type=genre', function(data) {
 		  	$('#genrehintval').html(data.hint.value);
 		  	$('#genrehint').hide();
 	  	});
