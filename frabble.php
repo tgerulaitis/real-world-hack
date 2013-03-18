@@ -149,8 +149,5 @@ require('functions.php');
   <script src="js/foundation/foundation.topbar.js"></script> 
   -->
   <?php require('footer.php'); ?>
-  <script>
-    $(document).foundation();
-  </script>
 </body>
 </html>
